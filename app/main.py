@@ -41,4 +41,4 @@ class SBooking(BaseModel): #схема пост запроса
 @app.post('/bookings')
 def add_booking(booking:SBooking):
     pass
-#ааааааааааа учусь
+#установил зависимости
