@@ -6,3 +6,7 @@
 3)pip install -r requirements.txt
 
 Для обновления библиотек pip freeze > requirements.txt
+
+Для запуска сервера: uvicorn app.main:app --reload
+
+Для выхода из витруального окружения deactivate
