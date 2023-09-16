@@ -10,3 +10,8 @@
 Для запуска сервера: uvicorn app.main:app --reload
 
 Для выхода из витруального окружения deactivate
+
+Alembic:
+1)alembic revision --autogenerate -m "Название миграции"
+2)alembic upgrade head (Залить все миграции)
+3)alembic downgrade -1 (Откатиться на миграцию назад)
