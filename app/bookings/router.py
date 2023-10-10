@@ -15,3 +15,5 @@ async def get_bookings():
         query = select(Bookings.__table__.columns)
         result = await session.execute(query)
         return result.mappings().all()
+    
+#dadsf
