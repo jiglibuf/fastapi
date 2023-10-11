@@ -3,11 +3,13 @@ from typing import Optional
 from datetime import date
 from pydantic import BaseModel
 from app.bookings.router import router as router_bookings
+from app.gko_data.router import router as router_gko_data
 
 
 app = FastAPI()
 
 app.include_router(router_bookings) #подключение роутера для бронирований
+app.include_router(router_gko_data) #подключение роутера для бронирований
 
 class SHotel(BaseModel):#схема ответа на гет запрос
     address: str
@@ -43,6 +45,10 @@ class SBooking(BaseModel): #схема пост запроса
     cost: float
 
 @app.post('/bookings')
+def add_booking(booking:SBooking):
+    pass
+
+@app.post('/data_gko')
 def add_booking(booking:SBooking):
     pass
 #установил зависимости
