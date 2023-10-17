@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from app.gko_data.dao import GKO_DataDAO
 
 router = APIRouter(
-    prefix='/data_gko',
+    prefix='/gko_data',
     tags=["Данные из таблицы data"],
 )
 

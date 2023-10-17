@@ -48,7 +48,7 @@ class SBooking(BaseModel): #схема пост запроса
 def add_booking(booking:SBooking):
     pass
 
-@app.post('/data_gko')
+@app.post('/gko_data')
 def add_booking(booking:SBooking):
     pass
 #установил зависимости
