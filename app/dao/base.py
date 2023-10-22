@@ -1,6 +1,6 @@
 #Data access object (работаем с бд)
 from app.database import async_session_maker
-from sqlalchemy import select
+from sqlalchemy import insert, select
 
 
 class BaseDAO: # Базовый класс для других моделей (описаны стандартные запросы к бд, например выбор всех строк из таблицы X)
@@ -20,3 +20,13 @@ class BaseDAO: # Базовый класс для других моделей (�
             query = select(cls.model.__table__.columns).filter_by(**filter_by)
             result = await session.execute(query)
             return result.mappings().one_or_none()
+    
+
+    @classmethod
+    async def add(cls, **data):# добавление строки в бд
+        async with async_session_maker() as session:
+            query = insert(cls.model).values(**data)
+            await session.execute(query)
+            await session.commit()
+
+        

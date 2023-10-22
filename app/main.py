@@ -2,11 +2,13 @@ from fastapi import FastAPI,Query, Depends
 from typing import Optional
 from datetime import date
 from pydantic import BaseModel
+from app.users.router import router as router_users
 from app.bookings.router import router as router_bookings
 
 
 app = FastAPI()
 
+app.include_router(router_users) #подключение роутера для пользователей
 app.include_router(router_bookings) #подключение роутера для бронирований
 
 class SHotel(BaseModel):#схема ответа на гет запрос
