@@ -13,7 +13,11 @@ class Settings(BaseSettings):
         user = f'{self.DB_USER}:{self.DB_PASS}'
         database = f'{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}'
         return f"postgresql+asyncpg://{user}@{database}"
-        
+    
+    # Для создания токена
+    SECRET_KEY: str
+    ALGORITHM: str
+
 
     model_config = SettingsConfigDict(env_file=".env")
 
