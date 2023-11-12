@@ -34,9 +34,9 @@ class HotelsSearchArgs:# схема гет запроса
 
 @app.get('/hotels',response_model=list[SHotel])
 def get_hotels(
-    seatch_args: HotelsSearchArgs = Depends()
+    search_args: HotelsSearchArgs = Depends()
 ):
-    return seatch_args
+    return search_args
 
 class SBooking(BaseModel): #схема пост запроса
     room_id: int

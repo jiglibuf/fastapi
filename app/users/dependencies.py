@@ -10,7 +10,7 @@ def get_token(request: Request):
     token = request.cookies.get('booking_access_token') # проверяем есть ли токен
     if not token:
         raise TokenAbsentException
-    return tokenо
+    return token
 
 async def get_current_user(token:str = Depends(get_token)):
 

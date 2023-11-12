@@ -1,6 +1,7 @@
 #Data access object (работаем с бд)
 from app.database import async_session_maker
-from sqlalchemy import insert, select
+from sqlalchemy import insert, select, delete, func, and_, or_
+
 
 
 class BaseDAO: # Базовый класс для других моделей (описаны стандартные запросы к бд, например выбор всех строк из таблицы X)
@@ -28,5 +29,3 @@ class BaseDAO: # Базовый класс для других моделей (�
             query = insert(cls.model).values(**data)
             await session.execute(query)
             await session.commit()
-
-        
