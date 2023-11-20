@@ -35,3 +35,17 @@ class UserIsNotInTokenException(BookingException):
 class RoomCannotBeBooked(BookingException):
     status_code=status.HTTP_409_CONFLICT
     detail='Не осталось свободных номеров'
+
+class MissedBooking(BookingException):
+    status_code=status.HTTP_404_NOT_FOUND
+    detail='Бронирование не найдено'
+
+
+#---------------------------------------
+class MissedHotel(BookingException):
+    status_code=status.HTTP_404_NOT_FOUND
+    detail='Отель не найден'
+
+class NoHotelsInLocation(BookingException):
+    status_code=status.HTTP_409_CONFLICT
+    detail='Отелей в этой локации нет'
