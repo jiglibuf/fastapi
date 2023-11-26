@@ -19,6 +19,7 @@ class IncorrectEmailOrPasswordException(BookingException):
 
 class TokenExpiredException(BookingException):
     status_code=status.HTTP_401_UNAUTHORIZED
+    status.HTTP_422
     detail='Токен истек'
 
 class TokenAbsentException(BookingException):

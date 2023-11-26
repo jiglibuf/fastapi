@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Список отелей</title>
+        <style>
+            body {
+                background-color: #F8F8F8;
+                font-family: sans-serif;
+            }
+    
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                margin: 0 auto;
+                max-width: 960px;
+                padding: 20px;
+                background-color: #FFFFFF;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+    
+            .hotel {
+                display: flex;
+                margin-bottom: 20px;
+                width: 100%;
+                border: 1px solid #E8E8E8;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+    
+            .hotel img {
+                margin-right: 20px;
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 10px 0 0 10px;
+            }
+    
+            .hotel-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                flex-grow: 1;
+                background-color: #F8F8F8;
+                padding: 20px;
+            }
+    
+            .hotel-name {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+    
+            .hotel-location {
+                font-size: 18px;
+                font-style: italic;
+                color: gray;
+                margin-bottom: 10px;
+            }
+    
+            .hotel-details {
+                display: flex;
+                align-items: center;
+                font-size: 18px;
+                font-style: italic;
+                color: gray;
+            }
+    
+            .hotel-details span {
+                margin-right: 10px;
+            }
+    
+            .hotel-details .price-range {
+                margin-left: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            {% for hotel in hotels %}
+            <div class="hotel">
+                <img src="{{ url_for('static', path='images/' + hotel.image_id|string + '.webp') }}" alt="фото отеля">
+                <div class="hotel-info">
+                    <div class="hotel-name">{{hotel.name}}</div>
+                    <div class="hotel-location">{{hotel.location}}</div>
+                    <div class="hotel-details">
+                        <span>Свободные номера: {{hotel.rooms_left}}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+    </html>
