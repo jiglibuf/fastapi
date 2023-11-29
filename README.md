@@ -11,7 +11,10 @@
 Для запуска сервера: uvicorn app.main:app --reload
 
 Для выхода из витруального окружения deactivate
-
+  Для создания:
+  alembic init migrations
+  
+  Для изменения дб:
 Alembic:
 1)alembic revision --autogenerate -m "Название миграции"
 2)alembic upgrade head (Залить все миграции)
