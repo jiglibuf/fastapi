@@ -13,6 +13,7 @@
 Для выхода из витруального окружения deactivate
   Для создания:
   alembic init migrations
+  изменить script_location если перенес папку migrations ниже (обычно папка app)
   
   Для изменения дб:
 Alembic:
